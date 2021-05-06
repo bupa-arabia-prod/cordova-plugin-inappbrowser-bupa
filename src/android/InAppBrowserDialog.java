@@ -50,7 +50,11 @@ public class InAppBrowserDialog extends Dialog {
             if (this.inAppBrowser.hardwareBack() && this.inAppBrowser.canGoBack()) {
                 this.inAppBrowser.goBack();
             }  else {
-                this.inAppBrowser.closeDialog();
+                   //if only the hardware button enabled incase no goback history
+               if(this.inAppBrowser.isEnableHardwareBackOnNoHistory()) {
+                      this.inAppBrowser.closeDialog();
+               }
+                //
             }
         }
     }
